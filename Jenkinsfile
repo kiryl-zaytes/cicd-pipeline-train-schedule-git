@@ -15,7 +15,8 @@ pipeline {
       }
       steps {
         withCredentials([usernamePassword(credentialsId: 'webser_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
-          sshPublisher{
+          sshPublisher(
+
             publishers: [
               sshPublisherDesc(
                 configName: 'staging',
@@ -33,7 +34,7 @@ pipeline {
                 ]
               )
             ]
-          }
+          )
 
         }
 
